@@ -25,49 +25,48 @@ fd dans lequel imprimer
 ##### ... :
 le type de ce que l'on veux imprimer suivit de la variable, les type font parties de l'enum e_types, 0 ou THEEND signifie la fin des argument. LE 0 EST IMPORTANT POUR UN FONCTIONNEMENT CORRECT. Sans 0 le comportement est indéfinis.
 ##### usage:
-   p((fd)(type)(data)(type2)(data2)(...)(typeN)(dataN)(fin des arguments))
+    p((fd)(type)(data)(type2)(data2)(...)(typeN)(dataN)(fin des arguments))
 ##### exemple basic :
-   p(1, INT, 1, 0); -> imprime 1 sur STDOUT
-   Les macro SS II DD BB etc... permettent de simplifier la syntax
-   le première exemple devient donc:
+    p(1, INT, 1, 0); -> imprime 1 sur STDOUT
+    Les macro SS II DD BB etc... permettent de simplifier la syntax
+    le première exemple devient donc:
        p(1 II 1 END);
  
 ## MACROS:
-   II      -> int
-   CC      -> char
-   SS      -> string
-   FF      -> float
-   DD      -> double
-   PP      -> pointer
-   BB      -> bool                         (0 -> "false" else -> "true")
-   IA      -> int array                    EXCEPTION
-   SA      -> char array
-   FL      -> print un fichier
-   FD      -> print un fd
-   AR      -> array                        EXCEPTION (à ça rigole plus la)
-   MA      -> matrice                      EXCEPTION (p il respect même pas printf enft)
-   ST      -> structure                    EXCEPTION (oui je sais maintenant TOUT des structures...)
-   LS      -> listes chainée               EXCEPTION (prit quoi???)
-   NL      -> new line                     EXCEPTION
-   VT      -> vertical tab                 EXCEPTION
-   SE      -> separator                    EXCEPTION
-   CTXT    -> change le text               EXCEPTION
-   CCOL    -> change la couleur du text    EXCEPTION
-   CBASE   -> change la base numeric       EXCEPTION
-   RST     -> reset les paramètre de text  EXCEPTION
-   END     -> fin des argument
- 
+    II      -> int
+    CC      -> char
+    SS      -> string
+    FF      -> float
+    DD      -> double
+    PP      -> pointer
+    BB      -> bool                         (0 -> "false" else -> "true")
+    IA      -> int array                    EXCEPTION
+    SA      -> char array
+    FL      -> print un fichier
+    FD      -> print un fd
+    AR      -> array                        EXCEPTION (à ça rigole plus la)
+    MA      -> matrice                      EXCEPTION (p il respect même pas printf enft)
+    ST      -> structure                    EXCEPTION (oui je sais maintenant TOUT des structures...)
+    LS      -> listes chainée               EXCEPTION (prit quoi???)
+    NL      -> new line                     EXCEPTION
+    VT      -> vertical tab                 EXCEPTION
+    SE      -> separator                    EXCEPTION
+    CTXT    -> change le text               EXCEPTION
+    CCOL    -> change la couleur du text    EXCEPTION
+    CBASE   -> change la base numeric       EXCEPTION
+    RST     -> reset les paramètre de text  EXCEPTION
+    END     -> fin des argument
  
 ## EXEMPLES:
-   p(fd II 1234 END) -> imprime 1234 dans fd
-   p(1 SS "le résultat est " BB 0 END)
-   ->
-   le résultat est faux
-  
-   p(1 SS "p c'est le turf" NL SS "j'aime vraiment p " DD 42.42 SS "fois plus que printf" END)
-   ->
-   p c'est le turf
-   j'aime vraiment p 42.42 fois plus que printf
+	p(fd II 1234 END) -> imprime 1234 dans fd
+	p(1 SS "le résultat est " BB 0 END)
+	->
+	le résultat est faux
+
+	p(1 SS "p c'est le turf" NL SS "j'aime vraiment p " DD 42.42 SS "fois plus que printf" END)
+	->
+	p c'est le turf
+	j'aime vraiment p 42.42 fois plus que printf
  
 ## NOTE:
 -   tout non-respect des exceptions ou de la syntaxe en général peut entraîner une simple erreur de compilation tout comme un segfault, faite donc bien attention (voir EXCEPTION plus bas).
@@ -79,34 +78,34 @@ le type de ce que l'on veux imprimer suivit de la variable, les type font partie
 ##### IA:
 IA doit être suivi de la taille du tableau a imprimer
  
-   p(1 IA tab, 10 END); attention a ','!!!
+	p(1 IA tab, 10 END); attention a ','!!!
 ##### NL:
 imprime un retour à la ligne et ne demande donc pas d'arguments
  
-   p(1 II 42 NL 42 END);
-   ->
-   42
-   42;
+	p(1 II 42 NL 42 END);
+	->
+	42
+	42;
 sans NL VT ou SE la manipulation de nombre serait plus complexe.
 sans NL     :  
- 
-   p(1 II 42 SS "\n" 42 END);
+
+	p(1 II 42 SS "\n" 42 END);
 Ce qui à la longue peut devenir une perte de temps.
 ##### VT:
 Similaire a NL mais imprime un tab.
 ##### SE:
 similaire a NL mais imprime un séparateur, " : " par défaut.
  
-   p(1 SS "data: " II 42 SE II 42 END)
-   ->
-   data: 42 : 42
+    p(1 SS "data: " II 42 SE II 42 END)
+    ->
+    data: 42 : 42
 Pour rendre certains outputs plus lisibles.
 ##### CTEXT:
 CTXT se base sur l'enum e_text_mode et permet d'imprimer tous en uppercase ou lowercase
  
-   p(1 CTXT uppercase SS "salut les amis" END)
-   ->
-   SALUT LES AMIS
+    p(1 CTXT uppercase SS "salut les amis" END)
+    ->
+    SALUT LES AMIS
 ##### CCOL:
 CCOL se base sur l'enum e_color et permet d'imprimer le texte en couleur ou même en italic gras etc..., allez voir l'enum ;)
 ```diff
@@ -167,7 +166,7 @@ p(1 MA salut CC 3, 100 END);
 ```
 ###### note:
 - pour un tableau de string l'utilisation de size x -> 100 est correct car un string s'arrête de toute façon au caractère '\0'
- 
+
 ## STRUCT (ST):
 p() peux imprimer des structure et ça, c'est beau (en vrai c le moin stable de tous j'ai pas tester sur 40 structures différentes)
 ST doit se finir par un END
@@ -175,19 +174,21 @@ ST doit se finir par un END
 	p(1 ST (struct pointer), (header text) (elem1 data type) (elem1 name) ... (elemn data type) (elemn name) END END)
 	(a noter la virgule après le pointer et les deux END, un pour ST et un pour p)
 ###### exemple:
-   struct a
-   {
-       int a;
-       char b;
-       char *c;
-   };
-   struct a ex = (struct a){1, 'b', "salut"};
-   p(1 ST (&ex), "impression de ex" II "a" CC "b" SS "c" END NL END);
-   ->
-   impression de ex
-   a:  1
-   b:  b
-   c:  salut
+```c
+struct a
+{
+   int a;
+   char b;
+   char *c;
+};
+struct a ex = (struct a){1, 'b', "salut"};
+p(1 ST (&ex), "impression de ex" II "a" CC "b" SS "c" END NL END);
+->
+impression de ex
+a:  1
+b:  b
+c:  salut
+```
 ###### note:
 - les bools doivent être des int pas des char ou des shorts!!! Un bool char ou short donne un comportement indéfini.
 - la prise en charge des structures incite l'utilisateur à créer une fonction qui utilisera p pour afficher sa structure car l'appelle de p est certe plus efficace que d'autre méthode (PRINTF),  mais reste néanmoins trop long.
