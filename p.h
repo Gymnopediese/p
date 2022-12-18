@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 02:14:51 by albaud            #+#    #+#             */
-/*   Updated: 2022/12/18 13:13:59 by albaud           ###   ########.fr       */
+/*   Updated: 2022/12/18 13:23:09 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,8 @@ void	ft_putbool_fd(int d, int fd);
 void	ft_putpointer_fd(long long d, int fd);
 int		*base(void);
 void	ft_putnbr_fd(long long n, int fd);
+int		arr(va_list *l, int fd);
+int		arrarr(va_list *l, int fd);
 
 int		ru(double num);
 int		round_counter(int *c, int r);
