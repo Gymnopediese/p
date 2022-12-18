@@ -1,9 +1,5 @@
 # p
- 
-# Foobar
- 
-Foobar is a Python library for dealing with word pluralization.
- 
+
 ## SYNOPSIS
    int p(int fd, ...);
  
