@@ -1,10 +1,10 @@
 # p
 p
 
-# SYNOPSIS:
+## SYNOPSIS:
 	int	p(int fd, ...);
 
-# DESCRIPTION:
+## DESCRIPTION:
 	p est une fonction qui fait passer printf pour un mandiant qui tue vos femmes
 	p s'apelle p car nous sommes la pour obtimiser la place
 	p prend comme premier parametre le fd dans lequel il écrira la data
@@ -17,7 +17,7 @@ p
 	a noter que c'est 100% pour la raison susmentionée que jai coder p
 	p est mon cher et tendre fils unique, je l'aime
 
-# ARGUMENTS:
+## ARGUMENTS:
 	fd :	fd dans lequel imprimer
 	... :	le type de ce que l'on veux imprimer suivit de la varibale,
 			les type font parties de l'enum e_types,
@@ -30,7 +30,7 @@ p
 	le premiere exemple devient donc:
 		p(1 II 1 END);
 
-# MACROS:
+## MACROS:
 	II -> int
 	CC -> char
 	SS -> string
@@ -51,7 +51,7 @@ p
 	SE -> separator		EXEPTION
 
 
-# EXEMPLES:
+## EXEMPLES:
 	p(fd II 1234 END) -> imprime 1234 dans fd
 	p(1 SS "le resultat est " BB 0 END)
 	-> 
@@ -63,7 +63,7 @@ p
 	p c'est le turf
 	jaime vraiment p 42.42 fois plus que printf
 
-# NOTE:
+## NOTE:
 	-	tout non respect des exception ou de la syntaxe en général peut entrainer
 		une simple erreur de compilation tout comme un segfault,
 		faite donc bien attention (voir EXCEPTION plus bas);
@@ -74,7 +74,7 @@ p
 	-	imprimer &variable ne respect pas la norme,
 		a mettre en parenthese: (&variable)
 
-# EXCEPTIONS:
+## EXCEPTIONS:
 	IA:
 		IA doit etre suivit de la taille du tableau a imprimer
 		exemple: p(1 IA tab, 10 END); attention a ','!!!
@@ -104,18 +104,18 @@ p
 	LS: 
 		LS est special est a donc sa propre partie
 
-# ARRAY:
+## ARRAY:
 	p() peux imprimer des array ce qui est plutot pratique et ce qui ne
 	peut etre réalisé par le misérable printf...
 	format pour les array:
 		p((fd) AR (array[]) (datatype) (size) END);
-		exempls:
+		###### exempls:
 			char **salut = (char *[]){"salut", "les", "amis"};
 			p(1 AR salut SS 3 END);
 			->
 			{"salut", "les", "amis"}
 
-# MATRIX:
+## MATRIX:
 	p() peux imprimer des matrices ce qui est plutot tres sympa
 	format pour les matrices:
 		p((fd) MA (matrice[][]) (datatype) (size y) (size x) END);
@@ -143,7 +143,7 @@ p
 				- pour un tableau de string l'utilisation de size x a 100
 				est correct car un string sarrete de toute façon au caracter '\0'
 
-# STRUCT (ST):
+## STRUCT (ST):
 	p() peux imprimer des structure et ça, c'est beau
 	(en vrai c la beta jai pas tester tout les cas possibles)
 	la structure doit elle meme se finir par un END
@@ -173,7 +173,7 @@ p
 	attention:	- ne fonctionne pas avec les structure composant d'autres structures;
 				- ne fonctionne pas avec des array autre que SA et IA;
 
-# LIST (LS):
+## LIST (LS):
 	p() peux imprimer des liste...
 	p se base sur cette variante des listes chainé
 	typedef struct s_list
