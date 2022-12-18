@@ -8,16 +8,16 @@ Foobar is a Python library for dealing with word pluralization.
     int	p(int fd, ...);
 
 ## DESCRIPTION:
-P est une fonction qui fait passer printf pour un mandiant qui tue vos femmes.
-p s'apelle p car nous sommes la pour obtimiser la place.
-p a un main de test très complet, allez checker ça.
-p prend comme premier parametre le fd dans lequel il écrira la data.
-ce choix est du a va_arg mais il rend p plus interessant.
-p c'est tlm beau que beaucoup de functions de p utilisent p pour imprimer des trucs, BOOOM.
-p apporte une plus grande varieter de choix que le pauvre printf qui me fait de la peines.
-p n'est pas compliqué a utiliser mais nécéssite une bonne utilisation, je conseil donc de lire le manuel.
-p n'a pas de formatage dégueulasse avec des % à la con,	a noter que c'est 100% pour la raison susmentionée que jai coder p.
-p est mon cher et tendre fils unique, je l'aime.
+P est une fonction qui fait passer printf pour un mandiant qui tue vos femmes.__
+p s'apelle p car nous sommes la pour obtimiser la place.__
+p a un main de test très complet, allez checker ça.__
+p prend comme premier parametre le fd dans lequel il écrira la data.__
+ce choix est du a va_arg mais il rend p plus interessant.__
+p c'est tlm beau que beaucoup de functions de p utilisent p pour imprimer des trucs, BOOOM.__
+p apporte une plus grande varieter de choix que le pauvre printf qui me fait de la peines.__
+p n'est pas compliqué a utiliser mais nécéssite une bonne utilisation, je conseil donc de lire le manuel.__
+p n'a pas de formatage dégueulasse avec des % à la con,	a noter que c'est 100% pour la raison susmentionée que jai coder p.__
+p est mon cher et tendre fils unique, je l'aime.__
 
 ## ARGUMENTS:
 ##### fd :
