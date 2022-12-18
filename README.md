@@ -130,7 +130,7 @@ LS est spécial est a donc sa propre partie
 ## ARRAY:
 p() peux imprimer des array ce qui est plutôt pratique et ce qui ne peut être réalisé par le misérable printf...
 ######  format pour les array:
-   p((fd) AR (array[]) (datatype) (size) END);
+	p((fd) AR (array[]) (datatype) (size) END);
 ###### examples:
 ```c
 char **salut = (char *[]){"salut", "les", "amis"};
@@ -142,8 +142,7 @@ p(1 AR salut SS 3 END);
 ## MATRIX:
 p() peux imprimer des matrices ce qui est plutot tres sympa
 ###### format pour les matrices:
- 
-   p((fd) MA (matrice[][]) (datatype) (size y) (size x) END);
+	p((fd) MA (matrice[][]) (datatype) (size y) (size x) END);
 ###### exemples:
 ```c
 int **nums = (int *[]){
