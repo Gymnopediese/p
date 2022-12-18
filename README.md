@@ -173,8 +173,8 @@ p(1 MA salut CC 3, 100 END);
 p() peux imprimer des structure et ça, c'est beau (en vrai c le moin stable de tous j'ai pas tester sur 40 structures différentes)
 ST doit se finir par un END
 ###### format pour les structures:
-   p(1 ST (struct pointer), (header text) (elem1 data type) (elem1 name) ... (elemn data type) (elemn name) END END)
-   (a noter la virgule après le pointer et les deux END, un pour ST et un pour p)
+	p(1 ST (struct pointer), (header text) (elem1 data type) (elem1 name) ... (elemn data type) (elemn name) END END)
+	(a noter la virgule après le pointer et les deux END, un pour ST et un pour p)
 ###### exemple:
    struct a
    {
@@ -208,7 +208,7 @@ typedef struct s_list
 }   t_list;
 ```
 ###### format pour les list:
-       p((fd) LS (ton t_list *), (DATATYPE) END);
+    p((fd) LS (ton t_list *), (DATATYPE) END);
 ###### structure:
 les noms n'ont pas d'importance seul le squelette importe
 ```c
