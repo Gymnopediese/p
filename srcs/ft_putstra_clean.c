@@ -1,22 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putstra_clean.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/11 15:59:16 by albaud            #+#    #+#             */
-/*   Updated: 2022/12/18 11:18:38 by albaud           ###   ########.fr       */
+/*   Created: 2022/07/11 17:21:16 by albaud            #+#    #+#             */
+/*   Updated: 2022/12/18 13:07:07 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "p.h"
+#include "../p.h"
 
-void	ft_putstr_fd(char const *s, int fd)
+void	ft_putstra_clean(char **arr, int fd)
 {
-	int	i;
+	int	loop;
 
-	i = -1;
-	while (s[++i])
-		ft_putchar_fd(s[i], fd);
+	loop = -1;
+	ft_putstr_fd("{", fd);
+	while (arr[++loop])
+	{
+		ft_putstr_fd("\"", fd);
+		ft_putstr_fd(arr[loop], fd);
+		ft_putstr_fd("\"", fd);
+		if (arr[loop + 1])
+		{
+			ft_putstr_fd(", ", fd);
+		}
+	}
+	ft_putstr_fd("};", fd);
 }

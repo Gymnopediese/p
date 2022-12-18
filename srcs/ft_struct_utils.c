@@ -1,20 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putdouble_fd.c                                  :+:      :+:    :+:   */
+/*   ft_struct_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/17 02:41:51 by albaud            #+#    #+#             */
-/*   Updated: 2022/12/17 20:32:11 by albaud           ###   ########.fr       */
+/*   Created: 2022/12/17 15:20:21 by albaud            #+#    #+#             */
+/*   Updated: 2022/12/18 13:07:29 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "p.h"
+#include "../p.h"
 
-void	ft_putdouble_fd(double d, int fd)
+int	ru(double num)
 {
-	ft_putnbr_fd((long long)d, fd);
-	ft_putstr_fd(".", fd);
-	ft_putnbr_fd((long long)((d - (long long)d) * 1000000), fd);
+	if ((num - (int)num) * 10 > 0)
+		return ((int)num + 1);
+	return ((int) num);
+}
+
+int	round_counter(int *c, int r)
+{
+	if (*c % r == 0)
+		return (1);
+	*c = *c + ru(((double) *c / (double)r));
+	return (1);
+}
+
+int	a(int *c, int r)
+{
+	int	t;
+
+	t = *c;
+	*c += r;
+	return (t);
 }

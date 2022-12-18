@@ -1,33 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putfile_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/17 02:46:02 by albaud            #+#    #+#             */
-/*   Updated: 2022/12/17 02:52:33 by albaud           ###   ########.fr       */
+/*   Created: 2022/07/11 15:59:16 by albaud            #+#    #+#             */
+/*   Updated: 2022/12/18 13:07:03 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "p.h"
+#include "../p.h"
 
-void	ft_putfile_fd(char *filename, int fd)
+void	ft_putstr_fd(char const *s, int fd)
 {
-	int		_fd;
-	char	buffer[1000];
-	int		size;
+	int	i;
 
-	_fd = open(filename, O_RDONLY);
-	if (_fd == -1 && p(2 SS "cannot open file" END))
-		return ;
-	size = 1;
-	while (size)
-	{
-		size = read(_fd, buffer, 999);
-		if (size == -1 && p(2 SS "cannot read file" END))
-			return ;
-		buffer[size] = 0;
-		p(fd SS buffer END);
-	}
+	i = -1;
+	while (s[++i])
+		ft_putchar_fd(s[i], fd);
 }

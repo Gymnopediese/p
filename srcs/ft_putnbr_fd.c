@@ -1,22 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putintm.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/01 14:24:54 by albaud            #+#    #+#             */
-/*   Updated: 2022/12/17 02:55:29 by albaud           ###   ########.fr       */
+/*   Created: 2022/07/11 16:02:47 by albaud            #+#    #+#             */
+/*   Updated: 2022/12/18 13:06:58 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "p.h"
+#include "../p.h"
+#define NUM "0123456789abcdefghijklmnopqrs"
 
-// void	ft_putintm(int **map)
-// {
-// 	int	i;
+int	*base(void)
+{
+	static int	base;
 
-// 	i = -1;
-// 	while (++i < map.size.y)
-// 		ft_putia_clean(map.map[i], map.size.x);
-// }
+	if (base == 0)
+		base = 10;
+	return (&base);
+}
+
+void	ft_putnbr_fd(long long n, int fd)
+{
+	long long	nb;
+
+	nb = n;
+	if (nb < 0)
+	{
+		write(fd, "-", 1);
+		nb = -nb;
+	}
+	if (nb >= *base())
+	{
+		ft_putnbr_fd(nb / *base(), fd);
+		nb = nb % *base();
+	}
+	if (nb < *base())
+		write(1, &NUM[nb], 1);
+}

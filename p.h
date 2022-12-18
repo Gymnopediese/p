@@ -6,50 +6,16 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 02:14:51 by albaud            #+#    #+#             */
-/*   Updated: 2022/12/18 11:36:45 by albaud           ###   ########.fr       */
+/*   Updated: 2022/12/18 13:13:59 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef P_H
 # define P_H
 
-# include "koflibc/sources.h"
-
-/*
-
-
-*/
-
 # include <stdarg.h>
 # include <unistd.h>
 # include <fcntl.h>
-
-enum e_types
-{
-	THEEND,
-	INT,
-	CHAR,
-	BOOL,
-	STR,
-	DOUBLE,
-	FLOAT,
-	INT_A,
-	STR_A,
-	POINTER,
-	FILENAME,
-	FILEDESCRIPTOR,
-	STRUCT,
-	LIST,
-	ARRAY,
-	MATRIX,
-	ENDL,
-	VERTICALTAB,
-	SEPARATOR,
-	CHANGEBASE,
-	CHANGETEXT,
-	CHANGECOLOR,
-	RESETTEXT,
-};
 
 enum e_text_mode
 {
@@ -86,6 +52,33 @@ enum e_color
 	hwhite,
 };
 
+enum e_types
+{
+	THEEND,
+	INT,
+	CHAR,
+	BOOL,
+	STR,
+	DOUBLE,
+	FLOAT,
+	INT_A,
+	STR_A,
+	POINTER,
+	FILENAME,
+	FILEDESCRIPTOR,
+	STRUCT,
+	LIST,
+	ARRAY,
+	MATRIX,
+	ENDL,
+	VERTICALTAB,
+	SEPARATOR,
+	CHANGEBASE,
+	CHANGETEXT,
+	CHANGECOLOR,
+	RESETTEXT,
+};
+
 # define TRUE_TEXT "true"
 # define FALSE_TEXT  "false"
 
@@ -111,7 +104,7 @@ enum e_color
 # define CBASE , CHANGEBASE,
 # define CCOL , CHANGECOLOR,
 # define RST , RESETTEXT
-# define CTEXT , CHANGETEXT,
+# define CTXT , CHANGETEXT,
 
 int		p(int fd, ...);
 

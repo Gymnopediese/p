@@ -1,30 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putia_clean.c                                   :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/11 17:21:16 by albaud            #+#    #+#             */
-/*   Updated: 2022/12/17 18:55:28 by albaud           ###   ########.fr       */
+/*   Created: 2022/07/11 15:51:45 by albaud            #+#    #+#             */
+/*   Updated: 2022/12/18 13:06:38 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "p.h"
+#include "../p.h"
 
-void	ft_putia_clean(int *arr, int size, int fd)
+int	*text_mode(void)
 {
-	int	loop;
+	static int	mode;
 
-	loop = -1;
-	ft_putstr_fd("{", fd);
-	while (++loop < size)
-	{
-		ft_putnbr_fd(arr[loop], fd);
-		if (loop < size - 1)
-		{
-			ft_putstr_fd(", ", fd);
-		}
-	}
-	ft_putstr_fd("}", fd);
+	return (&mode);
+}
+
+int	ft_tolower(int c)
+{
+	if (c <= 'Z' && c >= 'A')
+		c += 32;
+	return (c);
+}
+
+int	ft_toupper(int c)
+{
+	if (c <= 'z' && c >= 'a')
+		c -= 32;
+	return (c);
+}
+
+void	ft_putchar_fd(char c, int fd)
+{
+	if (*text_mode() == uppercase)
+		c = ft_toupper(c);
+	else if (*text_mode() == lowercase)
+		c = ft_tolower(c);
+	write(fd, &c, 1);
 }

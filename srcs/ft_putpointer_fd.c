@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstra_clean.c                                 :+:      :+:    :+:   */
+/*   ft_putpointer_fd.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/11 17:21:16 by albaud            #+#    #+#             */
-/*   Updated: 2022/12/17 20:31:38 by albaud           ###   ########.fr       */
+/*   Created: 2022/12/17 02:37:42 by albaud            #+#    #+#             */
+/*   Updated: 2022/12/18 13:07:00 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "p.h"
+#include "../p.h"
 
-void	ft_putstra_clean(char **arr, int fd)
+void	ft_putpointer_fd(long long d, int fd)
 {
-	int	loop;
-
-	loop = -1;
-	ft_putstr_fd("{", fd);
-	while (arr[++loop])
+	if (*base() == 10)
 	{
-		ft_putstr_fd("\"", fd);
-		ft_putstr_fd(arr[loop], fd);
-		ft_putstr_fd("\"", fd);
-		if (arr[loop + 1])
-		{
-			ft_putstr_fd(", ", fd);
-		}
+		ft_putstr_fd("0x", fd);
+		*base() = 16;
+		ft_putnbr_fd(d, fd);
+		*base() = 10;
 	}
-	ft_putstr_fd("};", fd);
+	else
+		ft_putnbr_fd(d, fd);
 }

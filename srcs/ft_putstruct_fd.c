@@ -6,11 +6,11 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 02:40:19 by albaud            #+#    #+#             */
-/*   Updated: 2022/12/17 18:46:47 by albaud           ###   ########.fr       */
+/*   Updated: 2022/12/18 13:07:20 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "p.h"
+#include "../p.h"
 
 int	s(int type)
 {
@@ -33,13 +33,14 @@ int	s(int type)
 	return (0);
 }
 
-int	struc2(va_list *l, int fd, int *ctr, void *po)
+int	struc2(int fd, int *ctr, void *po)
 {
 	if (ctr[1] == POINTER && round_counter(ctr, ctr[2]))
 		ft_putpointer_fd(((long long *)po)
 		[ru((double)a(ctr, ctr[2]) / ctr[2])], fd);
 	else if (ctr[1] == DOUBLE && round_counter(ctr, ctr[2]))
-		ft_putdouble_fd(va_arg(*l, double), fd);
+		ft_putdouble_fd(((double *)po)
+		[ru((double)a(ctr, ctr[2]) / ctr[2])], fd);
 	else if (ctr[1] == FILENAME && round_counter(ctr, ctr[2]))
 		ft_putfile_fd(((char **)po)[ru((double)a(ctr, ctr[2]) / ctr[2])], fd);
 	else if (ctr[1] == FILEDESCRIPTOR && round_counter(ctr, ctr[2]))
@@ -71,7 +72,7 @@ int	struc(va_list *l, int fd, int *ctr, void *po)
 		ft_putia_clean(&((int *)po)[ru((double)a(ctr, ctr[2]) / ctr[2])],
 			va_arg(*l, int), fd);
 	else
-		return (struc2(l, fd, ctr, po));
+		return (struc2(fd, ctr, po));
 	return (1);
 }
 

@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putpointer_fd.c                                 :+:      :+:    :+:   */
+/*   ft_putbool_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/17 02:37:42 by albaud            #+#    #+#             */
-/*   Updated: 2022/12/18 10:45:10 by albaud           ###   ########.fr       */
+/*   Created: 2022/12/17 02:36:57 by albaud            #+#    #+#             */
+/*   Updated: 2022/12/18 13:06:32 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "p.h"
+#include "../p.h"
 
-void	ft_putpointer_fd(long long d, int fd)
+void	ft_putbool_fd(int d, int fd)
 {
-	if (*base() == 10)
-	{
-		ft_putstr_fd("0x", fd);
-		*base() = 16;
-		ft_putnbr_fd(d, fd);
-		*base() = 10;
-	}
+	if (d)
+		ft_putstr_fd("true", fd);
 	else
-		ft_putnbr_fd(d, fd);
+		ft_putstr_fd("false", fd);
 }

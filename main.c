@@ -6,12 +6,11 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 02:39:11 by albaud            #+#    #+#             */
-/*   Updated: 2022/12/18 11:35:50 by albaud           ###   ########.fr       */
+/*   Updated: 2022/12/18 13:14:06 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "p.h"
-#include <stdio.h>
 
 typedef struct s_v
 {
@@ -33,6 +32,13 @@ struct s_a
 	char	*c;
 };
 
+typedef struct s_ve
+{
+	double	x;
+	double	y;
+	double	z;
+}	t_ve;
+
 // THEEND,
 // 	INT_A,
 // 	STR_A,
@@ -50,22 +56,24 @@ struct s_a
 // 	CHANGECOLOR,
 // 	RESETCOLOR
 
+
 void shortcuts()
 {
-	p(1 SS "SHORTCUTS\t:\n" END);
+	p(1 SS "############SHORTCUTS###########\n" END);
 	p(1 VT SS "1 tab\n" END);
 	p(1 VT VT SS "2 tab\n" END);
 	p(1 VT VT VT SS "3 tab\n" END);
-
 	p(1 NL SS "this is on a new line" NL NL END);
-
 	p(1 SS "voici quelques chiffres: " II 12 SE II 42 SE II 777
 		SS " voilà." NL END);
+	p(1 SS "################################" NL END);
 }
 
 void	basic_usage()
 {
-	p(1 SS "BASIC USAGE\t:\n" END);
+	int fd;
+
+	p(1 SS "############BASIC USAGE#########\n" END);
 	p(1 SS "############INT#################" NL END);
 	p(1 II 123123123 NL END);
 	p(1 II 2147483647 NL END);
@@ -105,15 +113,16 @@ void	basic_usage()
 	p(1 SS "############FILE################" NL END);
 	p(1 FN "Makefile" NL END);
 	p(1 SS "############FD##################" NL END);
-	int fd = open("Makefile", O_RDONLY);
+	fd = open("Makefile", O_RDONLY);
 	p(1 FD fd NL END);
+	close(fd);
 	p(1 SS "################################" NL END);
 
 }
 
 void	array(void)
 {
-	p(1 SS "ARRAYS\t:\n" END);
+	p(1 SS "############ARRAYS##############\n" END);
 	p(1 SS "############DOUBLE##############" NL END);
 	p(1 AR (double []){0.2, 1.2, 3.2, 3.2, 4.2, 3.2} DD 6 NL END);
 	p(1 AR (double []){9999999999.99999, 123} DD 2 NL END);
@@ -122,13 +131,12 @@ void	array(void)
 	p(1 AR (int []){0, 1, 2, '\0', 'd'} BB 5 NL END);
 	p(1 AR (int []){1, 1, 2, 9999, 222} BB 5 NL END);
 	p(1 AR (int []){0, 0, 0, '\0', 0} BB 5 NL END);
-	p(1 SS "############FILE################" NL END);
-	p(1 AR (char *[]){"Makefile", "ft_putchar_fd.c"} FN 2 NL END);
+	p(1 SS "################################" NL END);
 }
 
 void	matrices(void)
 {
-	p(1 SS "MATRICES\t:\n" END);
+	p(1 SS "############MATRICES############" NL END);
 	p(1 SS "############DOUBLE##############" NL END);
 	p(1 MA (double *[]){
 		(double []){0.1, 0.2, 0.3},
@@ -144,22 +152,24 @@ void	matrices(void)
 	p(1 SS "############STR_A#################" NL END);
 	p(1 MA (char *[]){"yoo", "mec", "en", "vrai", "t", "bien", "la", "?", 0}
 		CC 999, 999 NL END);
+	p(1 SS "################################" NL END);
 }
 
 void	base_changement()
 {
-	p(1 SS "BASE CHANGEMENT\t:\n" END);
+	p(1 SS "############BASE CHANGEMENT#####\n" END);
 	p(1 SS "42 BASE 10\t:\t" CBASE 10 II 42 NL END);
 	p(1 SS "42 BASE 16\t:\t" CBASE 16 II 42 NL END);
 	p(1 SS "42 BASE 2\t:\t" CBASE 2 II 42 NL END);
 	p(1 SS "42 BASE 8\t:\t" CBASE 8 II 42 NL END);
 	p(1 SS "42000 BASE 36\t:\t" CBASE 36 II 42000 NL END);
 	p(1 CBASE 10 END);
+	p(1 SS "################################" NL END);
 }
 
 void	color_changement()
 {
-	p(1 SS "TEXT CHANGEMENT\t:\n" END);
+	p(1 SS "############TEXT CHANGEMENT#####\n" END);
 	p(1 SS "42 GRAS\t\t:\t" CCOL gras II 42 RST NL END);
 	p(1 SS "42 CLAIR\t:\t" CCOL clair II 42 RST NL END);
 	p(1 SS "42 ITALIC\t:\t" CCOL italic II 42 RST NL END);
@@ -167,8 +177,7 @@ void	color_changement()
 	p(1 SS "42 CLIGNOTE\t:\t" CCOL clignote II 42 RST NL END);
 	p(1 SS "42 BARE\t\t:\t" CCOL bare II 42 RST NL END);
 	p(1 SS "42 DSOULIGNE\t:\t" CCOL dsouligne SS "salut" II 42 RST NL END);
-
-	p(1 SS "COLOR CHANGEMENT\t:\n" END);
+	p(1 SS "############COLOR CHANGEMENT####\n" END);
 	p(1 SS "42 IN RED\t:\t" CCOL red II 42 RST NL END);
 	p(1 SS "42 IN GREEN\t:\t" CCOL green II 42 RST NL END);
 	p(1 SS "42 IN BLUE\t:\t" CCOL blue II 42 RST NL END);
@@ -177,7 +186,7 @@ void	color_changement()
 	p(1 SS "42 IN BLACK\t:\t" CCOL black II 42 RST NL END);
 	p(1 SS "42 IN CYAN\t:\t" CCOL cyan II 42 RST NL END);
 
-	p(1 SS "COLOR BACKGROUND\t:\n" END);
+	p(1 SS "############COLOR BACKGROUND####\n" END);
 	p(1 SS "42 IN HRED\t:\t" CCOL hred II 42 RST NL END);
 	p(1 SS "42 IN HGREEN\t:\t" CCOL hgreen II 42 RST NL END);
 	p(1 SS "42 IN HBLUE\t:\t" CCOL hblue II 42 RST NL END);
@@ -186,12 +195,16 @@ void	color_changement()
 	p(1 SS "42 IN HBLACK\t:\t" CCOL hblack II 42 RST NL END);
 	p(1 SS "42 IN HCYAN\t:\t" CCOL hcyan II 42 RST NL END);
 
-	p(1 SS "UPPER LOWER\t:\n" END);
+	p(1 SS "############TEXT################\n" END);
 	p(1 SS "NOMAL\t\t:\t" II 42 SS " ca VAs La mIFf" RST NL END);
-	p(1 SS "LOWERCASE\t:\t" CTEXT lowercase II 42 SS " ca VAs La mIFf" RST NL END);
-	p(1 SS "UPPERCASE\t:\t" CTEXT uppercase II 42 SS " ca VAs La mIFf" RST NL END);
+	p(1 SS "LOWERCASE\t:\t" CTXT lowercase II 42 SS " ca VAs La mIFf" RST NL END);
+	p(1 SS "UPPERCASE\t:\t" CTXT uppercase II 42 SS " ca VAs La mIFf" RST NL END);
+	p(1 SS "################################" NL END);
 }
 
+/*
+
+NECESSITE VOS t_list, ft_lstadd_back et ft_lstnew
 
 void	list(void)
 {
@@ -229,43 +242,33 @@ void	list(void)
 	p(1 SS "DOUBLE LIST\t:\t" LS lst3, DOUBLE NL END);
 	p(1 SS "FLOAT LIST\t:\t" LS lst3, FLOAT NL END);
 }
+*/
+
+void struct_test(void)
+{
+	t_v			v;
+	t_ve		vector;
+	struct s_a	aa;
+
+	v = (t_v){'s', 'o', 's', 777, "salut", "mec", 123, 321, (char *[]){"t pas src la", "jai tord?", 0}};
+	vector = (t_ve){999.999, 42.42, 222};
+	aa = (struct s_a){911, 'z', "jaime p"};
+	p(1 SS "############STRUCT##############" NL END);
+	p(1 ST (&v), "printing t_v" CC "x" CC "y" CC "h" II
+		"z" SS "salut" SS "sss" II "w" II "e" SA "Srx mec" END NL END);
+	p(1 ST (&aa), "printing s_a" II "a" CC "b" SS "c" END NL END);
+	p(1 ST (&vector), "printing vector" DD "x" DD "y" DD "z" END NL END);
+	p(1 SS "################################" NL END);
+}
 
 int	main(void)
 {
-	// shortcuts();
-	// basic_usage();
-	// array();
-	// matrices();
-	 color_changement();
-	// base_changement();
-	// list();
-	return (0);
-	// nums = (int *[]){
-	// 	(int []){0, 1, 2, 3},
-	// 	(int []){1, 2, 3, 4},
-	// 	(int []){2, 3, 4, 5},
-	// 	(int []){3, 4, 5, 6},
-	// 	};
-	// p(1 MA nums II 4, 4 NL END);
-	// p(1 CC 'a' CC 'b' CC 'c' NL END);
-	// string = (char *){"savala miff"};
-	// s = (char *[]){"salut", "la", "miff", 0};
-	// p(1 MA s CC 3, 12 NL END);
-	// p(1 AR string CC 3 NL END);
-	// p(1 AR (double []){12.32, 123.333, 12332.999} DD 3 NL END);
-	// return (0);
-	// v = (t_v){'s', 'o', 's', 777, "salut", "mec", 123, 321,
-	// 	(char *[]){"t pas src la", "jai tord?"}};
-	// aa = (struct s_a){911, 'z', "jaime p"};
-	// p(1 II 123 NL IA (&v), 3 NL BB 1 SS
-	// 	" is only the spirit way of thinking about what is " BB 0 NL END);
-	// p(1 SS "mmmmmm" NL END);
-	// p(1 SS "start\n" ST (&v), "printing t_v" CC "x" CC "y" CC "h" II
-	// 	"z" SS "salut" SS "sss" II "w" II "e" SA "Srx mec" END SS "end" NL END);
-	// p(1 SS "p c'est le turf" NL SS "jaime vraiment p + que " DD 123.123 NL END);
-	// p(1 ST (&aa), "printing a" II "a" CC "b" SS "c" END NL END);
-	// p(1 FN "Makefile" NL END);
-	// p(1 PP (&v) NL END);
-	// p(1 SA s SS string NL END);
-	// printf("%p\n", &v);
+	shortcuts();
+	basic_usage();
+	array();
+	matrices();
+	color_changement();
+	base_changement();
+	// list(); // a lancer que si vous avez vos propre fonction list
+	struct_test();
 }

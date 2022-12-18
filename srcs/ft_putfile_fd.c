@@ -1,43 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putfile_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/11 15:51:45 by albaud            #+#    #+#             */
-/*   Updated: 2022/12/18 11:31:53 by albaud           ###   ########.fr       */
+/*   Created: 2022/12/17 02:46:02 by albaud            #+#    #+#             */
+/*   Updated: 2022/12/18 13:06:45 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "p.h"
+#include "../p.h"
 
-int	*text_mode(void)
+void	ft_putfile_fd(char *filename, int fd)
 {
-	static int	mode;
+	int		_fd;
+	char	buffer[1000];
+	int		size;
 
-	return (&mode);
-}
-
-int	ft_tolower(int c)
-{
-	if (c <= 'Z' && c >= 'A')
-		c += 32;
-	return (c);
-}
-
-int	ft_toupper(int c)
-{
-	if (c <= 'z' && c >= 'a')
-		c -= 32;
-	return (c);
-}
-
-void	ft_putchar_fd(char c, int fd)
-{
-	if (*text_mode() == uppercase)
-		c = ft_toupper(c);
-	else if (*text_mode() == lowercase)
-		c = ft_tolower(c);
-	write(fd, &c, 1);
+	_fd = open(filename, O_RDONLY);
+	if (_fd == -1 && p(2 SS "cannot open file" END))
+		return ;
+	size = 1;
+	while (size)
+	{
+		size = read(_fd, buffer, 999);
+		if (size == -1 && p(2 SS "cannot read file" END))
+			return ;
+		buffer[size] = 0;
+		p(fd SS buffer END);
+	}
 }
