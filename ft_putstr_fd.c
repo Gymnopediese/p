@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 15:59:16 by albaud            #+#    #+#             */
-/*   Updated: 2022/12/18 10:55:27 by albaud           ###   ########.fr       */
+/*   Updated: 2022/12/18 11:18:38 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ void	ft_putstr_fd(char const *s, int fd)
 
 	i = -1;
 	while (s[++i])
-		ft_putchar_fd(&s[i], fd);
+		ft_putchar_fd(s[i], fd);
 }

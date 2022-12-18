@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 18:39:00 by albaud            #+#    #+#             */
-/*   Updated: 2022/12/17 20:28:40 by albaud           ###   ########.fr       */
+/*   Updated: 2022/12/18 11:35:10 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,10 @@ int	papa(int fd, va_list *l, int num)
 		*(base()) = va_arg(*l, int);
 	else if (num == CHANGECOLOR)
 		p(fd SS "\033[0;" II va_arg(*l, int) SS "m" END);
-	else if (num == RESETCOLOR)
-		p(fd SS "\033[0m" END);
+	else if (num == RESETTEXT)
+		p(fd CTEXT normal SS "\033[0m" END);
+	else if (num == CHANGETEXT)
+		*(text_mode()) = va_arg(*l, int);
 	else
 		return (0);
 	return (1);

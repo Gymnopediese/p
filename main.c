@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 02:39:11 by albaud            #+#    #+#             */
-/*   Updated: 2022/12/18 10:54:57 by albaud           ###   ########.fr       */
+/*   Updated: 2022/12/18 11:35:50 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,31 +160,36 @@ void	base_changement()
 void	color_changement()
 {
 	p(1 SS "TEXT CHANGEMENT\t:\n" END);
-	p(1 SS "42 GRAS\t\t:\t" CCOL gras II 42 RCOL NL END);
-	p(1 SS "42 CLAIR\t:\t" CCOL clair II 42 RCOL NL END);
-	p(1 SS "42 ITALIC\t:\t" CCOL italic II 42 RCOL NL END);
-	p(1 SS "42 SOULIGNE\t:\t" CCOL souligne II 42 RCOL NL END);
-	p(1 SS "42 CLIGNOTE\t:\t" CCOL clignote II 42 RCOL NL END);
-	p(1 SS "42 BARE\t\t:\t" CCOL bare II 42 RCOL NL END);
-	p(1 SS "42 DSOULIGNE\t:\t" CCOL dsouligne SS "salut" II 42 RCOL NL END);
+	p(1 SS "42 GRAS\t\t:\t" CCOL gras II 42 RST NL END);
+	p(1 SS "42 CLAIR\t:\t" CCOL clair II 42 RST NL END);
+	p(1 SS "42 ITALIC\t:\t" CCOL italic II 42 RST NL END);
+	p(1 SS "42 SOULIGNE\t:\t" CCOL souligne II 42 RST NL END);
+	p(1 SS "42 CLIGNOTE\t:\t" CCOL clignote II 42 RST NL END);
+	p(1 SS "42 BARE\t\t:\t" CCOL bare II 42 RST NL END);
+	p(1 SS "42 DSOULIGNE\t:\t" CCOL dsouligne SS "salut" II 42 RST NL END);
 
 	p(1 SS "COLOR CHANGEMENT\t:\n" END);
-	p(1 SS "42 IN RED\t:\t" CCOL red II 42 RCOL NL END);
-	p(1 SS "42 IN GREEN\t:\t" CCOL green II 42 RCOL NL END);
-	p(1 SS "42 IN BLUE\t:\t" CCOL blue II 42 RCOL NL END);
-	p(1 SS "42 IN YELLOW\t:\t" CCOL yellow II 42 RCOL NL END);
-	p(1 SS "42 IN WHITE\t:\t" CCOL white II 42 RCOL NL END);
-	p(1 SS "42 IN BLACK\t:\t" CCOL black II 42 RCOL NL END);
-	p(1 SS "42 IN CYAN\t:\t" CCOL cyan II 42 RCOL NL END);
+	p(1 SS "42 IN RED\t:\t" CCOL red II 42 RST NL END);
+	p(1 SS "42 IN GREEN\t:\t" CCOL green II 42 RST NL END);
+	p(1 SS "42 IN BLUE\t:\t" CCOL blue II 42 RST NL END);
+	p(1 SS "42 IN YELLOW\t:\t" CCOL yellow II 42 RST NL END);
+	p(1 SS "42 IN WHITE\t:\t" CCOL white II 42 RST NL END);
+	p(1 SS "42 IN BLACK\t:\t" CCOL black II 42 RST NL END);
+	p(1 SS "42 IN CYAN\t:\t" CCOL cyan II 42 RST NL END);
 
 	p(1 SS "COLOR BACKGROUND\t:\n" END);
-	p(1 SS "42 IN HRED\t:\t" CCOL hred II 42 RCOL NL END);
-	p(1 SS "42 IN HGREEN\t:\t" CCOL hgreen II 42 RCOL NL END);
-	p(1 SS "42 IN HBLUE\t:\t" CCOL hblue II 42 RCOL NL END);
-	p(1 SS "42 IN HYELLOW\t:\t" CCOL hyellow II 42 RCOL NL END);
-	p(1 SS "42 IN HWHITE\t:\t" CCOL hwhite II 42 RCOL NL END);
-	p(1 SS "42 IN HBLACK\t:\t" CCOL hblack II 42 RCOL NL END);
-	p(1 SS "42 IN HCYAN\t:\t" CCOL hcyan II 42 RCOL NL END);
+	p(1 SS "42 IN HRED\t:\t" CCOL hred II 42 RST NL END);
+	p(1 SS "42 IN HGREEN\t:\t" CCOL hgreen II 42 RST NL END);
+	p(1 SS "42 IN HBLUE\t:\t" CCOL hblue II 42 RST NL END);
+	p(1 SS "42 IN HYELLOW\t:\t" CCOL hyellow II 42 RST NL END);
+	p(1 SS "42 IN HWHITE\t:\t" CCOL hwhite II 42 RST NL END);
+	p(1 SS "42 IN HBLACK\t:\t" CCOL hblack II 42 RST NL END);
+	p(1 SS "42 IN HCYAN\t:\t" CCOL hcyan II 42 RST NL END);
+
+	p(1 SS "UPPER LOWER\t:\n" END);
+	p(1 SS "NOMAL\t\t:\t" II 42 SS " ca VAs La mIFf" RST NL END);
+	p(1 SS "LOWERCASE\t:\t" CTEXT lowercase II 42 SS " ca VAs La mIFf" RST NL END);
+	p(1 SS "UPPERCASE\t:\t" CTEXT uppercase II 42 SS " ca VAs La mIFf" RST NL END);
 }
 
 

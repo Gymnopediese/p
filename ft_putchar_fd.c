@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 15:51:45 by albaud            #+#    #+#             */
-/*   Updated: 2022/12/18 11:01:59 by albaud           ###   ########.fr       */
+/*   Updated: 2022/12/18 11:31:53 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,25 @@ int	*text_mode(void)
 	return (&mode);
 }
 
+int	ft_tolower(int c)
+{
+	if (c <= 'Z' && c >= 'A')
+		c += 32;
+	return (c);
+}
+
+int	ft_toupper(int c)
+{
+	if (c <= 'z' && c >= 'a')
+		c -= 32;
+	return (c);
+}
+
 void	ft_putchar_fd(char c, int fd)
 {
-	if (*text_mode() == normal)
-		write(fd, &c, 1);
-	else
-	{
-		if (*text_mode() == toupper)
-			c = ft_toupper(c);
-		else if (*text_mode() == tollower)
-			c = ft_tolower(c);
-		write(fd, &c, 1);
-	}
+	if (*text_mode() == uppercase)
+		c = ft_toupper(c);
+	else if (*text_mode() == lowercase)
+		c = ft_tolower(c);
+	write(fd, &c, 1);
 }
