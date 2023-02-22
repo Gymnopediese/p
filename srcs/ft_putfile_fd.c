@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putfile_fd.c                                    :+:      :+:    :+:   */
+/*   p_putfile_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "../p.h"
 
-void	ft_putfile_fd(char *filename, int fd)
+void	p_putfile_fd(char *filename, int fd)
 {
 	int		_fd;
 	char	buffer[1000];

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstra_clean.c                                 :+:      :+:    :+:   */
+/*   p_putstra_clean.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,21 +12,21 @@
 
 #include "../p.h"
 
-void	ft_putstra_clean(char **arr, int fd)
+void	p_putstra_clean(char **arr, int fd)
 {
 	int	loop;
 
 	loop = -1;
-	ft_putstr_fd("{", fd);
+	p_putstr_fd("{", fd);
 	while (arr[++loop])
 	{
-		ft_putstr_fd("\"", fd);
-		ft_putstr_fd(arr[loop], fd);
-		ft_putstr_fd("\"", fd);
+		p_putstr_fd("\"", fd);
+		p_putstr_fd(arr[loop], fd);
+		p_putstr_fd("\"", fd);
 		if (arr[loop + 1])
 		{
-			ft_putstr_fd(", ", fd);
+			p_putstr_fd(", ", fd);
 		}
 	}
-	ft_putstr_fd("};", fd);
+	p_putstr_fd("};", fd);
 }

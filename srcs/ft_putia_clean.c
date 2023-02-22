@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putia_clean.c                                   :+:      :+:    :+:   */
+/*   p_putia_clean.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,19 +12,19 @@
 
 #include "../p.h"
 
-void	ft_putia_clean(int *arr, int size, int fd)
+void	p_putia_clean(int *arr, int size, int fd)
 {
 	int	loop;
 
 	loop = -1;
-	ft_putstr_fd("{", fd);
+	p_putstr_fd("{", fd);
 	while (++loop < size)
 	{
-		ft_putnbr_fd(arr[loop], fd);
+		p_putnbr_fd(arr[loop], fd);
 		if (loop < size - 1)
 		{
-			ft_putstr_fd(", ", fd);
+			p_putstr_fd(", ", fd);
 		}
 	}
-	ft_putstr_fd("}", fd);
+	p_putstr_fd("}", fd);
 }

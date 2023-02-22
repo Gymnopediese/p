@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/18 13:18:22 by albaud            #+#    #+#             */
-/*   Updated: 2022/12/18 13:22:29 by albaud           ###   ########.fr       */
+/*   Updated: 2023/02/14 01:15:40 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ int	arr2(int type, int fd, void *ar, int i)
 		p(fd, type, ((int *)ar)[i] END);
 	else if (type == STR && ((long long *)ar)[i])
 		p(fd SS "\"", type, ((long long *)ar)[i] SS "\"" END);
-	else if (type > BOOL && ((long long *)ar)[i])
+	else if (type > BOOL)
 		p(fd, type, ((long long *)ar)[i] END);
 	else if (p(1 SS "}" END))
-		return (0);
+		return (1);
 	return (1);
 }
 

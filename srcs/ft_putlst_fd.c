@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putlst_fd.c                                     :+:      :+:    :+:   */
+/*   p_putlst_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -34,7 +34,7 @@ void	putlst(void *lst, int fd, int type)
 	}
 }
 
-int	ft_putlst_fd(va_list *l, int fd)
+int	p_putlst_fd(va_list *l, int fd)
 {
 	void	*lst;
 	int		type;

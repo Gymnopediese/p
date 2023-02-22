@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putpointer_fd.c                                 :+:      :+:    :+:   */
+/*   p_putpointer_fd.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,15 +12,15 @@
 
 #include "../p.h"
 
-void	ft_putpointer_fd(long long d, int fd)
+void	p_putpointer_fd(long long d, int fd)
 {
 	if (*base() == 10)
 	{
-		ft_putstr_fd("0x", fd);
+		p_putstr_fd("0x", fd);
 		*base() = 16;
-		ft_putnbr_fd(d, fd);
+		p_putnbr_fd(d, fd);
 		*base() = 10;
 	}
 	else
-		ft_putnbr_fd(d, fd);
+		p_putnbr_fd(d, fd);
 }

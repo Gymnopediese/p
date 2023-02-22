@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 02:14:51 by albaud            #+#    #+#             */
-/*   Updated: 2022/12/18 13:23:09 by albaud           ###   ########.fr       */
+/*   Updated: 2023/02/19 18:39:57 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <fcntl.h>
+
+# ifndef PRINT
+#  define PRINT 1
+# endif
 
 enum e_text_mode
 {
@@ -77,10 +81,13 @@ enum e_types
 	CHANGETEXT,
 	CHANGECOLOR,
 	RESETTEXT,
+	LEN,
 };
 
 # define TRUE_TEXT "true"
 # define FALSE_TEXT  "false"
+
+# define PROGRESSBARSIZE 100
 
 # define CC , CHAR,
 # define SS , STR,
@@ -108,27 +115,29 @@ enum e_types
 
 int		p(int fd, ...);
 
-int		ft_putlst_fd(va_list *l, int fd);
-void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char const *s, int fd);
-void	ft_putstra_clean(char **arr, int fd);
-void	ft_putia_clean(int *arr, int size, int fd);
-void	ft_put_struct(va_list *l, int fd);
-void	ft_putfd_fd(int src, int dest);
-void	ft_putfile_fd(char *filename, int fd);
-void	ft_putdouble_fd(double d, int fd);
-void	ft_putbool_fd(int d, int fd);
-void	ft_putpointer_fd(long long d, int fd);
+int		p_putlst_fd(va_list *l, int fd);
+void	p_putchar_fd(char c, int fd);
+void	p_putstr_fd(char const *s, int fd);
+void	p_putstra_clean(char **arr, int fd);
+void	p_putia_clean(int *arr, int size, int fd);
+void	p_put_struct(va_list *l, int fd);
+void	p_putfd_fd(int src, int dest);
+void	p_putfile_fd(char *filename, int fd);
+void	p_putdouble_fd(double d, int fd);
+void	p_putbool_fd(int d, int fd);
+void	p_putpointer_fd(long long d, int fd);
 int		*base(void);
-void	ft_putnbr_fd(long long n, int fd);
+void	p_putnbr_fd(long long n, int fd);
 int		arr(va_list *l, int fd);
 int		arrarr(va_list *l, int fd);
 
 int		ru(double num);
 int		round_counter(int *c, int r);
 int		a(int *c, int r);
-int		ft_toupper(int c);
-int		ft_tolower(int c);
+int		p_toupper(int c);
+int		p_tolower(int c);
 int		*text_mode(void);
+
+void	progressbar(char *name, int iter, int max);
 
 #endif

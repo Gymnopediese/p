@@ -6,28 +6,45 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 18:39:00 by albaud            #+#    #+#             */
-/*   Updated: 2022/12/18 13:17:58 by albaud           ###   ########.fr       */
+/*   Updated: 2023/02/14 01:09:05 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "p.h"
 
+int	*length(void)
+{
+	static int	mode;
+
+	return (&mode);
+}
+
+int	papapa(int fd, va_list *l, int num)
+{
+	(void) fd;
+	if (num == LEN)
+		*(length()) = va_arg(*l, int);
+	else
+		return (0);
+	return (1);
+}
+
 int	papa(int fd, va_list *l, int num)
 {
 	if (num == POINTER)
-		ft_putpointer_fd(va_arg(*l, long long), fd);
+		p_putpointer_fd(va_arg(*l, long long), fd);
 	else if (num == LIST)
-		ft_putlst_fd(l, fd);
+		p_putlst_fd(l, fd);
 	else if (num == ARRAY)
 		arr(l, fd);
 	else if (num == MATRIX)
 		arrarr(l, fd);
 	else if (num == SEPARATOR)
-		ft_putstr_fd(" : ", fd);
+		p_putstr_fd(" : ", fd);
 	else if (num == VERTICALTAB)
-		ft_putstr_fd("\t", fd);
+		p_putstr_fd("\t", fd);
 	else if (num == CHAR)
-		ft_putchar_fd(va_arg(*l, int), fd);
+		p_putchar_fd(va_arg(*l, int), fd);
 	else if (num == CHANGEBASE)
 		*(base()) = va_arg(*l, int);
 	else if (num == CHANGECOLOR)
@@ -37,34 +54,34 @@ int	papa(int fd, va_list *l, int num)
 	else if (num == CHANGETEXT)
 		*(text_mode()) = va_arg(*l, int);
 	else
-		return (0);
+		return (papapa(fd, l, num));
 	return (1);
 }
 
 int	pa(int fd, va_list *l, int num)
 {
 	if (num == INT)
-		ft_putnbr_fd(va_arg(*l, int), fd);
+		p_putnbr_fd(va_arg(*l, int), fd);
 	else if (num == STR)
-		ft_putstr_fd(va_arg(*l, char *), fd);
+		p_putstr_fd(va_arg(*l, char *), fd);
 	else if (num == INT_A)
-		ft_putia_clean(va_arg(*l, int *), va_arg(*l, int), fd);
+		p_putia_clean(va_arg(*l, int *), va_arg(*l, int), fd);
 	else if (num == DOUBLE)
-		ft_putdouble_fd(va_arg(*l, double), fd);
+		p_putdouble_fd(va_arg(*l, double), fd);
 	else if (num == BOOL)
-		ft_putbool_fd(va_arg(*l, int), fd);
+		p_putbool_fd(va_arg(*l, int), fd);
 	else if (num == STR_A)
-		ft_putstra_clean(va_arg(*l, char **), fd);
+		p_putstra_clean(va_arg(*l, char **), fd);
 	else if (num == BOOL)
-		ft_putstr_fd(va_arg(*l, char *), fd);
+		p_putstr_fd(va_arg(*l, char *), fd);
 	else if (num == ENDL)
-		ft_putstr_fd("\n", fd);
+		p_putstr_fd("\n", fd);
 	else if (num == STRUCT)
-		ft_put_struct(l, fd);
+		p_put_struct(l, fd);
 	else if (num == FILENAME)
-		ft_putfile_fd(va_arg(*l, char *), fd);
+		p_putfile_fd(va_arg(*l, char *), fd);
 	else if (num == FILEDESCRIPTOR)
-		ft_putfd_fd(va_arg(*l, int), fd);
+		p_putfd_fd(va_arg(*l, int), fd);
 	else
 		return (papa(fd, l, num));
 	return (1);

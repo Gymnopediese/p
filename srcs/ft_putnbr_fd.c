@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   p_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -22,7 +22,7 @@ int	*base(void)
 	return (&base);
 }
 
-void	ft_putnbr_fd(long long n, int fd)
+void	p_putnbr_fd(long long n, int fd)
 {
 	long long	nb;
 
@@ -34,9 +34,9 @@ void	ft_putnbr_fd(long long n, int fd)
 	}
 	if (nb >= *base())
 	{
-		ft_putnbr_fd(nb / *base(), fd);
+		p_putnbr_fd(nb / *base(), fd);
 		nb = nb % *base();
 	}
 	if (nb < *base())
-		write(1, &NUM[nb], 1);
+		write(fd, &NUM[nb], 1);
 }

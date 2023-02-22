@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putintm.c                                       :+:      :+:    :+:   */
+/*   p_putintm.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,11 +12,11 @@
 
 #include "../p.h"
 
-// void	ft_putintm(int **map)
+// void	p_putintm(int **map)
 // {
 // 	int	i;
 
 // 	i = -1;
 // 	while (++i < map.size.y)
-// 		ft_putia_clean(map.map[i], map.size.x);
+// 		p_putia_clean(map.map[i], map.size.x);
 // }

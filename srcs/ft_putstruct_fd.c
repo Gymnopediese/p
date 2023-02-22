@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstruct_fd.c                                  :+:      :+:    :+:   */
+/*   p_putstruct_fd.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -36,15 +36,15 @@ int	s(int type)
 int	struc2(int fd, int *ctr, void *po)
 {
 	if (ctr[1] == POINTER && round_counter(ctr, ctr[2]))
-		ft_putpointer_fd(((long long *)po)
+		p_putpointer_fd(((long long *)po)
 		[ru((double)a(ctr, ctr[2]) / ctr[2])], fd);
 	else if (ctr[1] == DOUBLE && round_counter(ctr, ctr[2]))
-		ft_putdouble_fd(((double *)po)
+		p_putdouble_fd(((double *)po)
 		[ru((double)a(ctr, ctr[2]) / ctr[2])], fd);
 	else if (ctr[1] == FILENAME && round_counter(ctr, ctr[2]))
-		ft_putfile_fd(((char **)po)[ru((double)a(ctr, ctr[2]) / ctr[2])], fd);
+		p_putfile_fd(((char **)po)[ru((double)a(ctr, ctr[2]) / ctr[2])], fd);
 	else if (ctr[1] == FILEDESCRIPTOR && round_counter(ctr, ctr[2]))
-		ft_putfd_fd(((int *)po)[ru((double)a(ctr, ctr[2]) / ctr[2])], fd);
+		p_putfd_fd(((int *)po)[ru((double)a(ctr, ctr[2]) / ctr[2])], fd);
 	else
 		return (0);
 	return (1);
@@ -58,25 +58,25 @@ int	struc(va_list *l, int fd, int *ctr, void *po)
 	ctr[2] = s(ctr[1]);
 	p(fd SS va_arg(*l, char *) SS ":\t" END);
 	if (ctr[1] == INT && round_counter(ctr, ctr[2]))
-		ft_putnbr_fd(((int *)po)[ru((double)a(ctr, ctr[2]) / ctr[2])], fd);
+		p_putnbr_fd(((int *)po)[ru((double)a(ctr, ctr[2]) / ctr[2])], fd);
 	else if (ctr[1] == CHAR)
-		ft_putchar_fd(((char *)po)[a(ctr, 1)], fd);
+		p_putchar_fd(((char *)po)[a(ctr, 1)], fd);
 	else if (ctr[1] == BOOL && round_counter(ctr, ctr[2]))
-		ft_putbool_fd(((int *)po)[ru((double)a(ctr, ctr[2]) / ctr[2])], fd);
+		p_putbool_fd(((int *)po)[ru((double)a(ctr, ctr[2]) / ctr[2])], fd);
 	else if (ctr[1] == STR && round_counter(ctr, ctr[2]))
-		ft_putstr_fd(((char **)po)[ru((double)a(ctr, ctr[2]) / ctr[2])], fd);
+		p_putstr_fd(((char **)po)[ru((double)a(ctr, ctr[2]) / ctr[2])], fd);
 	else if (ctr[1] == STR_A && round_counter(ctr, ctr[2]))
-		ft_putstra_clean(((char ***)po)
+		p_putstra_clean(((char ***)po)
 		[ru((double)a(ctr, ctr[2]) / ctr[2])], fd);
 	else if (ctr[1] == INT_A && round_counter(ctr, ctr[2]))
-		ft_putia_clean(&((int *)po)[ru((double)a(ctr, ctr[2]) / ctr[2])],
+		p_putia_clean(&((int *)po)[ru((double)a(ctr, ctr[2]) / ctr[2])],
 			va_arg(*l, int), fd);
 	else
 		return (struc2(fd, ctr, po));
 	return (1);
 }
 
-void	ft_put_struct(va_list *l, int fd)
+void	p_put_struct(va_list *l, int fd)
 {
 	void	*po;
 	int		ctr[3];

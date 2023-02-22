@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putbool_fd.c                                    :+:      :+:    :+:   */
+/*   p_putbool_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,10 +12,10 @@
 
 #include "../p.h"
 
-void	ft_putbool_fd(int d, int fd)
+void	p_putbool_fd(int d, int fd)
 {
 	if (d)
-		ft_putstr_fd("true", fd);
+		p_putstr_fd("true", fd);
 	else
-		ft_putstr_fd("false", fd);
+		p_putstr_fd("false", fd);
 }

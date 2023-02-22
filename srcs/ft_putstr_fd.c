@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   p_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,11 +12,11 @@
 
 #include "../p.h"
 
-void	ft_putstr_fd(char const *s, int fd)
+void	p_putstr_fd(char const *s, int fd)
 {
 	int	i;
 
 	i = -1;
 	while (s[++i])
-		ft_putchar_fd(s[i], fd);
+		p_putchar_fd(s[i], fd);
 }
