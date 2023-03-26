@@ -1,19 +1,12 @@
 # p
 
 ## SYNOPSIS
-   int p(int fd, ...);
+   int p(int fd, ...); <br>
+   void	pbar(char *name, int iter, int max);
  
 ## DESCRIPTION:
-P est une fonction qui fait passer printf pour un mendiant qui tue vos femmes.<br />
-p s'apelle p car nous sommes la pour optimiser la place.<br />
-p a un main de test très complet, allez checker ça.<br />
-p prend comme premier paramètre le fd dans lequel il écrira la data.<br />
-ce choix est du a va_arg mais il rend p plus intéressant.<br />
-p c'est tlm beau que beaucoup de fonctions de p utilisent p pour imprimer des trucs, BOOOM.<br />
-p apporte une plus grande variété de choix que le pauvre printf qui me fait de la peines.<br />
-p n'est pas compliqué a utiliser mais nécessite une bonne utilisation, je conseil donc de lire le manuel.<br />
-p n'a pas de formatage dégueulasse avec des % à la con, a noter que c'est 100% pour la raison susmentionnée que jai coder p.<br />
-p est mon cher et tendre fils unique, je l'aime.<br />
+P est une fonction qui imprime beaucoup, beaucoup de trucs.<br>
+Pbar imprime une bar de progression.
  
 ## ARGUMENTS:
 ##### fd :
