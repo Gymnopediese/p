@@ -17,8 +17,6 @@ void	p_put(long long n, int fd, int v)
 	long long	nb;
 
 	nb = n;
-	// if (v == 0)
-	// 	write(fd, ".", 1);
 	if (nb < 0)
 	{
 		write(fd, "-", 1);

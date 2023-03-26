@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 02:14:51 by albaud            #+#    #+#             */
-/*   Updated: 2023/02/19 18:39:57 by albaud           ###   ########.fr       */
+/*   Updated: 2023/03/26 16:44:20 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,6 +138,6 @@ int		p_toupper(int c);
 int		p_tolower(int c);
 int		*text_mode(void);
 
-void	progressbar(char *name, int iter, int max);
+void	pbar(char *name, int iter, int max);
 
 #endif
