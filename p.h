@@ -6,7 +6,7 @@
 /*   By: albaud <albaud@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 02:14:51 by albaud            #+#    #+#             */
-/*   Updated: 2023/03/26 16:44:20 by albaud           ###   ########.fr       */
+/*   Updated: 2023/09/27 16:07:26 by albaud           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,11 +133,11 @@ int		arrarr(va_list *l, int fd);
 
 int		ru(double num);
 int		round_counter(int *c, int r);
-int		a(int *c, int r);
+// int		a(int *c, int r);
 int		p_toupper(int c);
 int		p_tolower(int c);
 int		*text_mode(void);
 
 void	pbar(char *name, int iter, int max);
-
+int	afunction(int *c, int r);
 #endif

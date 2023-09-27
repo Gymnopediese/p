@@ -27,7 +27,7 @@ int	round_counter(int *c, int r)
 	return (1);
 }
 
-int	a(int *c, int r)
+int	afunction(int *c, int r)
 {
 	int	t;
 

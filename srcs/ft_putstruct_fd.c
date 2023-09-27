@@ -37,14 +37,14 @@ int	struc2(int fd, int *ctr, void *po)
 {
 	if (ctr[1] == POINTER && round_counter(ctr, ctr[2]))
 		p_putpointer_fd(((long long *)po)
-		[ru((double)a(ctr, ctr[2]) / ctr[2])], fd);
+		[ru((double)afunction(ctr, ctr[2]) / ctr[2])], fd);
 	else if (ctr[1] == DOUBLE && round_counter(ctr, ctr[2]))
 		p_putdouble_fd(((double *)po)
-		[ru((double)a(ctr, ctr[2]) / ctr[2])], fd);
+		[ru((double)afunction(ctr, ctr[2]) / ctr[2])], fd);
 	else if (ctr[1] == FILENAME && round_counter(ctr, ctr[2]))
-		p_putfile_fd(((char **)po)[ru((double)a(ctr, ctr[2]) / ctr[2])], fd);
+		p_putfile_fd(((char **)po)[ru((double)afunction(ctr, ctr[2]) / ctr[2])], fd);
 	else if (ctr[1] == FILEDESCRIPTOR && round_counter(ctr, ctr[2]))
-		p_putfd_fd(((int *)po)[ru((double)a(ctr, ctr[2]) / ctr[2])], fd);
+		p_putfd_fd(((int *)po)[ru((double)afunction(ctr, ctr[2]) / ctr[2])], fd);
 	else
 		return (0);
 	return (1);
@@ -58,18 +58,18 @@ int	struc(va_list *l, int fd, int *ctr, void *po)
 	ctr[2] = s(ctr[1]);
 	p(fd SS va_arg(*l, char *) SS ":\t" END);
 	if (ctr[1] == INT && round_counter(ctr, ctr[2]))
-		p_putnbr_fd(((int *)po)[ru((double)a(ctr, ctr[2]) / ctr[2])], fd);
+		p_putnbr_fd(((int *)po)[ru((double)afunction(ctr, ctr[2]) / ctr[2])], fd);
 	else if (ctr[1] == CHAR)
-		p_putchar_fd(((char *)po)[a(ctr, 1)], fd);
+		p_putchar_fd(((char *)po)[afunction(ctr, 1)], fd);
 	else if (ctr[1] == BOOL && round_counter(ctr, ctr[2]))
-		p_putbool_fd(((int *)po)[ru((double)a(ctr, ctr[2]) / ctr[2])], fd);
+		p_putbool_fd(((int *)po)[ru((double)afunction(ctr, ctr[2]) / ctr[2])], fd);
 	else if (ctr[1] == STR && round_counter(ctr, ctr[2]))
-		p_putstr_fd(((char **)po)[ru((double)a(ctr, ctr[2]) / ctr[2])], fd);
+		p_putstr_fd(((char **)po)[ru((double)afunction(ctr, ctr[2]) / ctr[2])], fd);
 	else if (ctr[1] == STR_A && round_counter(ctr, ctr[2]))
 		p_putstra_clean(((char ***)po)
-		[ru((double)a(ctr, ctr[2]) / ctr[2])], fd);
+		[ru((double)afunction(ctr, ctr[2]) / ctr[2])], fd);
 	else if (ctr[1] == INT_A && round_counter(ctr, ctr[2]))
-		p_putia_clean(&((int *)po)[ru((double)a(ctr, ctr[2]) / ctr[2])],
+		p_putia_clean(&((int *)po)[ru((double)afunction(ctr, ctr[2]) / ctr[2])],
 			va_arg(*l, int), fd);
 	else
 		return (struc2(fd, ctr, po));
