@@ -12,7 +12,7 @@
 
 #include "../p.h"
 
-int	s(int type)
+int	suc(int type)
 {
 	int	*a;
 
@@ -55,7 +55,7 @@ int	struc(va_list *l, int fd, int *ctr, void *po)
 	ctr[1] = va_arg(*l, int);
 	if (ctr[1] == THEEND)
 		return (0);
-	ctr[2] = s(ctr[1]);
+	ctr[2] = suc(ctr[1]);
 	p(fd SS va_arg(*l, char *) SS ":\t" END);
 	if (ctr[1] == INT && round_counter(ctr, ctr[2]))
 		p_putnbr_fd(((int *)po)[ru((double)afunction(ctr, ctr[2]) / ctr[2])], fd);
